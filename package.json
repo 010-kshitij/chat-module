@@ -1,0 +1,19 @@
+{
+  "name": "chat-module",
+  "version": "1.0.0",
+  "description": "Chat Module for real time chat",
+  "main": "app.js",
+  "dependencies": {
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kshitij Sharma",
+  "license": "ISC",
+  "dependencies":{
+    "socket.io" : "*",
+    "express" : "*"
+  }
+}
