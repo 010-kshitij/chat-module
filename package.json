@@ -1,22 +1,29 @@
 {
   "name": "chat-module",
-  "version": "1.0.0",
-  "description": "Chat Module for real time chat",
+  "version": "0.0.1",
+  "description": "A sample Node.js app using Express",
+  "engines": {
+    "node": "6.11.4"
+  },
   "main": "app.js",
-  "dependencies": {
-    "socket.io": "^2.0.4"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "author": "Kshitij Sharma",
-  "license": "ISC",
-  "dependencies":{
-    "socket.io" : "*",
-    "express" : "*"
+  "dependencies": {
+    "express": "4.15.2",
+    "socket.io": "*"
   },
-  "engines" : {
-    "node" : "6.11.4"
-  }
+  "devDependencies": {
+   
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/010-kshitij/chat-module"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
