@@ -22,9 +22,17 @@
                         </div>
                     </div>
                 </div>
+                                
                 <div class="row">
                     <div class="col-md-12">
                         <form id="messageForm">
+                            <!-- my id -->
+                            <label>Sender ID</label>
+                            <input class="form-control" id="sender-id" />
+                            <!-- receiver id -->
+                            <label>Receiver ID</label>
+                            <input class="form-control" id="receiver-id" />
+                            <!-- message -->
                             <label>Enter Message</label>
                             <textarea class="form-control" id="message"></textarea>
                             <input type="submit" class="btn btn-primary" value="Send"/>
@@ -37,13 +45,30 @@
                 
                 $(document).on('submit', "#messageForm", function(event) {
                     event.preventDefault();
-                    socket.emit("send message", $("#message").val());
+                    if($("#message").val().trim() == '') {
+                        return;
+                    }
+                    data = {
+                        "sender_id" : $("#sender-id").val(),
+                        "receiver_id" : $("#receiver-id").val(),
+                        "message" : $("#message").val()
+                    };
+                    socket.emit("send message", data);
                     $("#message").val("");
                 });
 
                 socket.on("new message", function(data) {
-                    $("#message-area").append('<p>' + data.msg + '</p>');
+                    if(data.receiver_id == $("#sender-id").val()) {
+                        $("#message-area").append('<p><strong>' + data.sender_id + '</strong> - ' + data.message + '</p>');
+                    }
                 });
+
+                $(document).on("keypress", function(event){
+                    if(event.keyCode == 13) {
+                        $("#messageForm").submit();
+                    }
+                });
+
             </script>
         </body>
     </head>
